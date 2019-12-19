@@ -1,21 +1,31 @@
 #include<stdio.h>
 
-int* add(int*a,int*b){
-int sum[8];
-int c=0,s=0;
-for(int i=8;i!=-1;i++){
-  s=a[i]+b[i];
-  c=s/2;
-  s[i]=s%2;
+int sum[9];
+
+//finds binary sum of 2 binary no in array
+int* add(int* a,int* b,int c){  //2 modes (3rd argument which is for carry  can be 0 or 1)
+  int s;
+  for(int i=7;i!=-1;i--){
+    s=a[i]+b[i]+c;
+    sum[i+1]=s%2;
+    c=s/2;
+  }
+  return sum;
 }
-return sum;
+
+//displays the result of sum
+void disp(int*a){
+  for(int i=0;i!=9;i++){
+   printf("%d",a[i]);
+  }
 }
 int main()
 {
-  int arrA[8]={0,0,0,0,1,0,1,0};
+  int arrA[8]={0,0,0,0,1,1,0,1};
   int arrB[8]={0,0,0,0,1,0,1,0};
-  int* sum=add(arrA,arrB);
-  for(int i=0;i!=8;i++){
-    printf("%d",sum(i)*);
+  int s[8];
+  int* ptr=add(arrA,arrB,0);
+  disp(ptr);
+
+
   }
-}
